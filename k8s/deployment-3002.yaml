@@ -25,10 +25,10 @@ spec:
       containers:
         - name: node3002
           image: conditional-port-dock
-          resources:
-            limits:
-              memory: "256Mi"
-              cpu: "500m"
+          # resources:
+          #   limits:
+          #     memory: "256Mi"
+          #     cpu: "500m"
           ports:
             - containerPort: 3002
           env:
