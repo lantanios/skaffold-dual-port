@@ -3,16 +3,19 @@ kind: Config
 
 build:
   artifacts:
-    - image: node-example
+    - image: conditional-port-dock
       context: backend
-
+# deploy:
+#   kubectl:
+#     manifests:
+#       - ./k8s/*
 profiles:
   - name: dev
     activation:
       - command: dev
     build:
       artifacts:
-        - image: node-example
+        - image: conditional-port-dock
           context: backend
           docker:
             buildArgs:

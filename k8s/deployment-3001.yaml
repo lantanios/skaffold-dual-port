@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
         - name: node3001
-          image: node-example
+          image: conditional-port-dock
           resources:
             limits:
               memory: "256Mi"
