@@ -1,35 +1,24 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: node3001
-spec:
-  ports:
-    - port: 3001
-  type: LoadBalancer
-  selector:
-    app: node3001
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: node3001
+  name: node3001-app
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: node3001
+      app: node3001-app
   template:
     metadata:
       labels:
-        app: node3001
+        app: node3001-app
     spec:
       containers:
-        - name: node3001
+        - name: node3001-container
           image: conditional-port-dock
           resources:
             limits:
               memory: 512Mi
-              cpu: "1"
+              cpu: "0.2"
             requests:
               memory: 256Mi
               cpu: "0.2"
@@ -38,3 +27,17 @@ spec:
           env:
             - name: test
               value: "1"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node3001-service
+spec:
+  ports:
+    - name: client
+      protocol: TCP
+      port: 3001
+      targetPort: 3001
+  # type: LoadBalancer
+  selector:
+    app: node3001-app

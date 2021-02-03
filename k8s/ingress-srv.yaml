@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-srv
+  annotations:
+    # Basically says 'I've got routing rules for you'
+    kubernetes.io/ingress.class: nginx
+    # Lets us use regex in paths
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  rules:
+    # Should have changed the /etc/hosts to match this
+    - host: templater.us
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: node3001-service
+              servicePort: 3001
+          - path: /posts
+            backend:
+              serviceName: node3002-service
+              servicePort: 3002
