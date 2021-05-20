@@ -6,15 +6,14 @@ WORKDIR /src
 
 ARG ENV=production
 
-# CMD npm run $NODE_ENV
+ENV NODE_ENV $ENV
 
 COPY package* ./ 
 # examples don't use package-lock.json to minimize updates 
 RUN npm install --no-package-lock
 COPY . .
 
-EXPOSE 3001 3002 5000
+EXPOSE 5000
 
-#default to the servers. 
-# for the internal-server we will run ["node", "internal_server.js"] with port 5000
-CMD ["node", "internal_server.js"] 
+CMD npm run $NODE_ENV
+ 

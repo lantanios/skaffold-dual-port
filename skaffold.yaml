@@ -30,6 +30,9 @@ profiles:
                 dest: .
         - image: port-dock-server
           context: server
+          docker:
+            buildArgs:
+              ENV: development
           sync:
             manual:
               # Sync all the javascript files that are in the src folder
