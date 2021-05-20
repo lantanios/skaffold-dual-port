@@ -1,0 +1,39 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: httpbin
+spec:
+  hosts:
+  - "www.templater.us"
+  gateways:
+  - istio-gateway
+  http:
+  - match:
+    - uri:
+        exact: /server1 #TODO: look into exact and prefix
+    route:
+    - destination:
+        port:
+          number: 3001
+        host: node3001
+
+---
+
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: httpbin
+spec:
+  hosts:
+  - "www.templater.us"
+  gateways:
+  - istio-gateway
+  http:
+  - match:
+    - uri:
+        exact: /server2 #TODO: look into exact and prefix
+    route:
+    - destination:
+        port:
+          number: 3002
+        host: node3002
