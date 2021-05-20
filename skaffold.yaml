@@ -3,7 +3,7 @@ kind: Config
 
 build:
   artifacts:
-    - image: conditional-port-dock
+    - image: kungus/conditional-port-dock
       context: backend
 deploy:
   kubectl:
