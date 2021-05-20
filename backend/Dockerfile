@@ -12,10 +12,10 @@ ENV NODE_ENV $ENV \
 
 # CMD npm run $NODE_ENV
 
-# COPY --chown=node:node package* ./
+COPY package* ./
 # examples don't use package-lock.json to minimize updates 
 RUN npm install --no-package-lock
-COPY --chown=node:node . .
+COPY . .
 
 EXPOSE 3001 3002 5000
 

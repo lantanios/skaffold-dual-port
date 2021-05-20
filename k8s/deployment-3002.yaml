@@ -25,4 +25,4 @@ spec:
               value: "2"
             - name: INTERNAL_SERVICE_ADDRESS
               value: node5000:5000
-      restartPolicy: OnFailure
+      restartPolicy: Always

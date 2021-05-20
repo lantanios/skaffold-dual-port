@@ -5,18 +5,18 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: node3001
-    template:
-      metadata:
-        labels:
-          app: node5000
-      spec:
-        containers:
-          - name: internal-server-node5000
-            image: conditional-port-dock
-            ports:
-              - containerPort: 5000
-            command: ["node"]
-            args: ["internal_server.js"]
-        restartPolicy: OnFailure
+      app: node5000
+  template:
+    metadata:
+      labels:
+        app: node5000
+    spec:
+      containers:
+        - name: internal-server-node5000
+          image: conditional-port-dock
+          ports:
+            - containerPort: 5000
+          command: ["node"]
+          args: ["internal_server.js"]
+      restartPolicy: Always
             
