@@ -13,10 +13,8 @@ spec:
     spec:
       containers:
         - name: internal-server-node5000
-          image: conditional-port-dock
+          image: port-dock-server
           ports:
             - containerPort: 5000
-          command: ["node"]
-          args: ["internal_server.js"]
       restartPolicy: Always
             

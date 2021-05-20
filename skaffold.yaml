@@ -3,8 +3,10 @@ kind: Config
 
 build:
   artifacts:
-    - image: kungus/conditional-port-dock
+    - image: conditional-port-dock
       context: backend
+    - image: port-dock-server
+      context: server
 deploy:
   kubectl:
     manifests:
@@ -20,6 +22,14 @@ profiles:
           docker:
             buildArgs:
               ENV: development
+          sync:
+            manual:
+              # Sync all the javascript files that are in the src folder
+              # with the container src folder
+              - src: "src/**/*.js"
+                dest: .
+        - image: port-dock-server
+          context: server
           sync:
             manual:
               # Sync all the javascript files that are in the src folder

@@ -1,0 +1,17 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/internal_server.js",
+  "scripts": {
+    "production": "node src/internal_server.js",
+    "development": "nodemon src/internal_server.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
