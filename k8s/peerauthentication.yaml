@@ -1,0 +1,9 @@
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: tls-auth-for-default-ns
+  namespace: default
+spec:
+  mtls:
+    mode: STRICT
+    credentialName: ingress-cert

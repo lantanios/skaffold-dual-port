@@ -1,0 +1,21 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: node3001-tls
+spec:
+  host: tls-node3001
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
+
+---
+
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: node3002-tls
+spec:
+  host: tls-node3002 #destination service
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL

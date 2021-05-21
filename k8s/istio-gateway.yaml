@@ -7,11 +7,14 @@ spec:
     istio: ingressgateway # use istio default ingress gateway
   servers:
   - port:
-      number: 443
-      name: https
-      protocol: HTTPS
-    tls:
-      mode: SIMPLE
-      # credentialName: ingress-cert # This should match the Certificate secretName
+      number: 3000
+      name: http-node3000
+      protocol: HTTP
     hosts:
-    - "www.templater.us"
+    - "templater.us"
+  - port:
+      number: 3001
+      name: http-node3001
+      protocol: HTTP
+    hosts:
+    - "template.us"
