@@ -2,6 +2,15 @@ FROM node:12.16.0-alpine3.10
 
 # USER node
 # RUN mkdir /home/node/app
+RUN apk update && \
+    apk upgrade && \
+    apk add \ 
+     git \
+     curl \
+     openssl
+
+RUN set -ex && apk --no-cache add sudo
+
 WORKDIR /src
 
 ARG ENV=production
