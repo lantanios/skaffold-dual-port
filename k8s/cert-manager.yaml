@@ -4,7 +4,6 @@ metadata:
   name: cert-manager
 
 ---
-
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
@@ -14,7 +13,6 @@ spec:
   selfSigned: {}
 
 ---
-
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
@@ -22,8 +20,8 @@ metadata:
   namespace: istio-system
 spec:
   secretName: ingress-cert
-  commonName: www.templater.us
+  commonName: www.hulbon.org
   dnsNames:
-    - www.templater.us
+    - www.hulbon.org
   issuerRef:
     name: selfsigned-issuer

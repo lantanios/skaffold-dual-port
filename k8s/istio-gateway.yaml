@@ -6,15 +6,15 @@ spec:
   selector:
     istio: ingressgateway # use istio default ingress gateway
   servers:
-  - port:
-      number: 3000
-      name: http-node3000
-      protocol: HTTP
-    hosts:
-    - "templater.us"
-  - port:
-      number: 3001
-      name: http-node3001
-      protocol: HTTP
-    hosts:
-    - "template.us"
+    - port:
+        number: 3000
+        name: http-node3000
+        protocol: HTTP
+      hosts:
+        - "hulbon.org"
+    - port:
+        number: 3001
+        name: http-node3001
+        protocol: HTTP
+      hosts:
+        - "template.us"
